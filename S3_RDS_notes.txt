@@ -1,0 +1,48 @@
+************************S3_Bucket***************************
+**************simple storage service*****************
+
+---object_storage --- Like google drive --- We have API 
+--- Cost based 
+				Hot tier - High cost
+				cold tier - Low cost
+				archieve - lowest cost
+---Replica
+
+
+---Bucket versioning
+
+				Delete file --- it will delete parent file at the same time it will create a copy of file
+				Encryption  --- original data into coding format
+								--Encrypt at Transmission
+								--Encrypt at rest
+				
+				
+						
+arn:aws:s3:::b270723
+
+
+Bucket owner (your AWS account):Canonical ID
+f5e1ac70f54fd02447354e5ca0ceacd6c27a82563659c67a1724a13e05c6a87e
+
+	
+
+
+
+************ RDS ************
+
+versions can upgrade , but cannot downgrade
+
+DB_Instance - DB running in a server 
+
+maria DB/my sql port no - 3306
+
+During maintenance window - cpu % will arise
+
+
+
+
+
+
+
+
+

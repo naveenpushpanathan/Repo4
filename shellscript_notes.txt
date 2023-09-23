@@ -1,0 +1,214 @@
+=========================================shell script _ AWS_Training===================================================
+
+file format ---> .sh
+
+#!/bin/bash ---> This is a must and for each shell script file it should be the first line (Like a translator between user and machine)
+
+sh ---> sh shellscriptfilename ---> to execute shell script
+
+bash ---> bash -x shellscriptfilename ---> to execute shellscript file in debug mode (run with details)
+
+script ---> Template used to do repeatative task, in a automatic way. it will executes multiple commands in a single execution. To make day to day activities in simple way like taking backup, validating server running.
+=========================================================================================================
+sample: first.sh
+
+#!/bin/bash
+
+echo "Enter the directory name"
+read DIR
+echo "Enter the file name"
+read FILE
+
+mkdir directoryname ($DIR)
+touch filename ($FILE)
+echo "My directory name is directoryname ($DIR)" >> directoryname/filename ($DIR/$FILE)
+
+
+To execute: 
+sh first.sh
+bash -x first.sh
+==============================================================================================================
+#!/bin/bash
+echo "Enter the directory name"
+read $dir_name
+echo "Enter the file name"
+read $file_name
+
+
+mkdir $dir_name
+touch $file_name
+echo "My Directory name is $dir_name" >> $dir_name/$file_name
+
+
+
+[ec2-user@ip-172-31-21-121 ~]$ sh script1.sh
+Enter the directory name
+dir_1
+Enter the file name
+file_1
+mkdir: missing operand
+Try 'mkdir --help' for more information.
+touch: missing file operand
+Try 'touch --help' for more information.
+script1.sh: line 10: /: Is a directory
+
+
+======================corrected==================================
+#!/bin/bash
+echo "Enter the directory name"
+read dir_name
+echo "Enter the file name"
+read file_name
+
+
+mkdir $dir_name
+touch $dir_name/$file_name
+echo "My Directory name is $dir_name" >> $dir_name/$file_name
+=============================================================================================================
+[ec2-user@ip-172-31-21-121 ~]$ bash
+[ec2-user@ip-172-31-21-121 ~]$ bash -x script1.sh
++ echo 'Enter the directory name'
+Enter the directory name
++ read dir_name
+dir2
++ echo 'Enter the file name'
+Enter the file name
++ read file_name
+file2
++ mkdir dir2
++ touch dir2/file2
++ echo 'My Directory name is dir2'
+[ec2-user@ip-172-31-21-121 ~]$ cd dir2 && cat file2
+My Directory name is dir2
+[ec2-user@ip-172-31-21-121 dir2]$
+===============================================================================================================
+
+
+
+if CONDITION-TO-TEST; then
+     CODE-TO-EXECUTE-1
+elif NEXT-CONDITION-TO-TEST; then
+     CODE-TO-EXECUTE-2
+elif NEXT-CONDITION-TO-TEST; then
+     CODE-TO-EXECUTE-2
+else
+     CODE-TO-EXECUTE-2
+fi
+
+===========================================================================================
+
+simple_if_statement:
+
+#!/bin/bash
+
+a=$1
+
+if [ $a == 1 ]
+then	
+	echo " a value is 1"
+else
+	echo " Value must be 1"
+fi
+==================================================
+elif_statement
+
+#!/bin/bash
+
+a=$1
+
+if [$a==1]
+then
+	echo "a value is 1"
+elif [ $a == 2 ]
+then	
+	echo "a value is 2"
+elif [ $a == 3 ]
+then	
+	echo "a value is 3"
+else
+	echo "value must be 1 or 2 or 3"
+fi
+===================================================
+
+Tried Exercises: If Examples
+
+#!/bin/bash
+
+a=$1
+
+if [ $a == 1 ]
+then
+        echo " a value is 1"
+else
+        echo " Value must be 1"
+fi
+
+====================================================
+
+Tried Exercises: Elif Examples
+
+#!/bin/bash
+
+a=$1
+
+b=$2
+
+if [ $a == Maha ] && [ $b == Raja ]
+then
+        echo "Maharaja is here"
+
+elif [ $a == Raja ] && [ $b == Maha ]
+then
+        echo "You've made 50%"
+else
+        echo "You're in big trouble"
+fi
+
+=======================================================
+
+Using Operators:
+> greater
+< lesser 
+>= greater than
+<= lesser than
+!= not equal to
+= assign
+== equals to
+===============================================
+
+#!/bin/bash
+
+read -p "Enter value for a" a
+read -p "Enter value for b" b
+
+if [ $a -gt $b ]
+
+then
+        c=$((a+b))
+        echo "sum of a + b = $c"
+else
+        echo "$b is greater than or equal to $a"
+fi
+
+==================================================
+
+
+
+Operator	Linux Commands	Windows Commands
+AND					&&				&&
+OR					`	
+NOT					!				!
+Equal				=				==
+Not Equal			!=				neq or ne
+Greater Than		>				-gt
+Less Than			<				-lt
+Greater or Equal	>=				-ge
+Less or Equal		<=				-le
+
+=====================================================
+
+For_Loop
+Initializer -----> for a in  [1...10]
+condition ------>  do
+incrementer/decrementer -------> done
+--- cyberciti.com
